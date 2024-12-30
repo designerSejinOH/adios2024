@@ -4344,6 +4344,14 @@ motion-utils@^11.14.3:
   resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-11.14.3.tgz#cd4a413463739498411f82abb67b3dd58768b0f8"
   integrity sha512-Xg+8xnqIJTpr0L/cidfTTBFkvRw26ZtGGuIhA94J9PQ2p4mEa06Xx7QVYZH0BP+EpMSaDlu+q0I0mmvwADPsaQ==
 
+motion@^11.15.0:
+  version "11.15.0"
+  resolved "https://registry.yarnpkg.com/motion/-/motion-11.15.0.tgz#1fb62b16300ad011dd4cde0a80ce3fc2a7e63b6e"
+  integrity sha512-iZ7dwADQJWGsqsSkBhNHdI2LyYWU+hA1Nhy357wCLZq1yHxGImgt3l7Yv0HT/WOskcYDq9nxdedyl4zUv7UFFw==
+  dependencies:
+    framer-motion "^11.15.0"
+    tslib "^2.4.0"
+
 mrmime@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/mrmime/-/mrmime-2.0.0.tgz#151082a6e06e59a9a39b46b3e14d5cfe92b3abb4"
@@ -4814,6 +4822,11 @@ react-loading-skeleton@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-3.5.0.tgz#da2090355b4dedcad5c53cb3f0ed364e3a76d6ca"
   integrity sha512-gxxSyLbrEAdXTKgfbpBEFZCO/P153DnqSCQau2+o6lNy1jgMRr2MmRmOzMmyrwSaSYLRB8g7b0waYPmUjz7IhQ==
+
+react-modal-sheet@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-modal-sheet/-/react-modal-sheet-4.0.0.tgz#b3238ae64fc685ebf55d5dff2aa7bc0079ad9b08"
+  integrity sha512-U4MpulYG/JdzK+ecZiQyZBO/motZ4+UX+84XbLDXRHE88ZXGsof17g/IvV2NXqsQUhP7VxoGSHWlCI4+A5E9tQ==
 
 react-reconciler@^0.27.0:
   version "0.27.0"

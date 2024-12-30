@@ -1,9 +1,12 @@
 'use client'
 
-import { Loading } from '@/components/dom'
-import { Box } from '@react-three/drei'
+import { BottomSheet, Loading, SheetHeader } from '@/components/dom'
+import * as THREE from 'three'
 import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
+import { Suspense, useRef, useState } from 'react'
+import { Box, Sky, Sphere } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import { TypeAnimation } from 'react-type-animation'
 
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
@@ -16,22 +19,81 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Page() {
+  const [isSheetOpen, setIsSheetOpen] = useState(false)
+
   return (
     <div className='w-screen h-screen flex flex-col md:flex-row items-center'>
-      <div className='fixed top-0 left-0 flex w-full h-fit flex-row justify-between items-center'>
-        <h1 className='text-4xl font-bold leading-tight hover:opacity-50 cursor-pointer'>아디오스 2024</h1>
-      </div>
-
+      <Header />
       <div className='w-full h-full flex justify-center items-center bg-gray-200'>
         <View orbit className='flex h-full w-full flex-col items-center justify-center'>
           <Suspense fallback={null}>
-            <Box args={[1, 1, 1]} />
+            <Sky />
+            <Mesh
+              onClick={() => {
+                setIsSheetOpen(true)
+              }}
+            />
             <Common color={undefined} />
           </Suspense>
         </View>
       </div>
-
-      <div className='flex w-full md:w-1/3 md:min-w-96 h-1/3 min-h-64 md:h-full overflow-y-scroll flex-col items-center'></div>
+      <BottomSheet
+        isOpen={isSheetOpen}
+        onClose={() => {
+          setIsSheetOpen(false)
+        }}
+      >
+        <SheetHeader />
+        <p>Bottom Sheet Content</p>
+      </BottomSheet>
     </div>
+  )
+}
+
+const Header = () => {
+  return (
+    <div className='fixed z-10 top-0 left-0 flex w-full h-fit flex-row justify-between items-center px-6 py-4'>
+      <TypeAnimation
+        cursor={false}
+        sequence={['Goobye 2024', 1000, '굿바이 2024']}
+        wrapper='div'
+        speed={30}
+        className='text-3xl font-pretendard text-black'
+      />
+    </div>
+  )
+}
+
+interface MeshProps {
+  onHover?: () => void
+  onClick?: () => void
+}
+
+const Mesh = ({ onHover, onClick }: MeshProps) => {
+  const ref = useRef<null | THREE.Mesh>(null)
+  const [isHovered, setIsHovered] = useState(false)
+
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.rotation.x += 0.01
+      ref.current.rotation.y += 0.01
+    }
+  }),
+    [ref]
+
+  return (
+    <mesh
+      ref={ref}
+      onClick={onClick}
+      onPointerOver={() => {
+        setIsHovered(true)
+        onHover && onHover()
+      }}
+      onPointerOut={() => setIsHovered(false)}
+    >
+      <Sphere ref={ref} args={[1, 32, 32]} position={[0, 0, 0]} scale={isHovered ? [1.5, 1.5, 1.5] : [1, 1, 1]}>
+        <meshStandardMaterial color='hotpink' />
+      </Sphere>
+    </mesh>
   )
 }

@@ -11,15 +11,9 @@ interface CommonProps {
 
 export const Common = ({ color }: CommonProps) => (
   <Suspense fallback={null}>
-    {/* @ts-ignore */}
     {color && <color attach='background' args={[color]} />}
-    {/* @ts-ignore */}
     <ambientLight />
-    {/* @ts-ignore */}
-    <pointLight position={[10, 10, 10]} />
-    {/* @ts-ignore */}
-    <pointLight position={[-10, -10, -10]} color='blue' decay={0.2} />
-    <PerspectiveCamera makeDefault fov={40} position={[0, 0, 6]} />
+    <PerspectiveCamera makeDefault fov={70} position={[0, 0, 10]} />
   </Suspense>
 )
 

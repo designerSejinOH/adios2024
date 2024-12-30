@@ -16,7 +16,12 @@ module.exports = {
       '4xl': '2.25rem',
       '5xl': '3rem',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        pretendard: ['var(--font-pretendard)', 'sans-serif'],
+        wixMadeForDisplay: ['var(--font-wix-made-for-display)', 'sans-serif'],
+      },
+    },
   },
   variants: {
     extend: {},

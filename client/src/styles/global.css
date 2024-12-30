@@ -152,7 +152,7 @@
     pointer-events: none;
   }
 
-  .gradient-blur>div,
+  .gradient-blur > div,
   .gradient-blur::before,
   .gradient-blur::after {
     position: absolute;
@@ -168,7 +168,7 @@
     mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 12.5%, black 25%, rgba(0, 0, 0, 0) 37.5%);
   }
 
-  .gradient-blur>div:nth-of-type(1) {
+  .gradient-blur > div:nth-of-type(1) {
     z-index: 2;
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
@@ -176,7 +176,7 @@
     mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 12.5%, black 25%, black 37.5%, rgba(0, 0, 0, 0) 50%);
   }
 
-  .gradient-blur>div:nth-of-type(2) {
+  .gradient-blur > div:nth-of-type(2) {
     z-index: 3;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
@@ -184,7 +184,7 @@
     mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, black 37.5%, black 50%, rgba(0, 0, 0, 0) 62.5%);
   }
 
-  .gradient-blur>div:nth-of-type(3) {
+  .gradient-blur > div:nth-of-type(3) {
     z-index: 4;
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
@@ -192,7 +192,7 @@
     mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 37.5%, black 50%, black 62.5%, rgba(0, 0, 0, 0) 75%);
   }
 
-  .gradient-blur>div:nth-of-type(4) {
+  .gradient-blur > div:nth-of-type(4) {
     z-index: 5;
     -webkit-backdrop-filter: blur(32px);
     backdrop-filter: blur(32px);
@@ -200,7 +200,7 @@
     mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, black 62.5%, black 75%, rgba(0, 0, 0, 0) 87.5%);
   }
 
-  .gradient-blur>div:nth-of-type(5) {
+  .gradient-blur > div:nth-of-type(5) {
     z-index: 6;
     -webkit-backdrop-filter: blur(64px);
     backdrop-filter: blur(64px);
@@ -208,7 +208,7 @@
     mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 62.5%, black 75%, black 87.5%, rgba(0, 0, 0, 0) 100%);
   }
 
-  .gradient-blur>div:nth-of-type(6) {
+  .gradient-blur > div:nth-of-type(6) {
     z-index: 7;
     -webkit-backdrop-filter: blur(64px);
     backdrop-filter: blur(64px);
@@ -239,7 +239,6 @@
   }
 
   @keyframes pulsOut {
-
     0%,
     50% {
       box-shadow: 0 0 0 0 rgb(163, 230, 53);
