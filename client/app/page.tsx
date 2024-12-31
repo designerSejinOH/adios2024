@@ -114,7 +114,7 @@ const Header = () => {
     <div className='fixed z-10 top-0 left-1/2 -translate-x-1/2 flex w-fit h-fit flex-col gap-1 justify-center items-center py-6 cursor-pointer'>
       <div
         onClick={() => window.location.reload()}
-        className='text-5xl w-fit text-nowrap font-[establishRetrosansOTF] text-white font-bold md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out'
+        className='text-4xl w-fit text-nowrap font-[establishRetrosansOTF] text-white font-bold md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out'
       >
         GOODBYE 2024
       </div>
