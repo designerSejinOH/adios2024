@@ -8,7 +8,13 @@ import * as THREE from 'three'
 export default function Scene({ ...props }) {
   // Everything defined in here will persist between route changes, only children are swapped
   return (
-    <Canvas {...props} onCreated={(state) => (state.gl.toneMapping = THREE.AgXToneMapping)}>
+    <Canvas
+      {...props}
+      shadows
+      gl={{ antialias: false }}
+      camera={{ position: [10, -5, 5], fov: 15 }}
+      onCreated={(state) => (state.gl.toneMapping = THREE.AgXToneMapping)}
+    >
       {/* @ts-ignore */}
       <r3f.Out />
       <Preload all />

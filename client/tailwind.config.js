@@ -20,6 +20,7 @@ module.exports = {
       fontFamily: {
         pretendard: ['var(--font-pretendard)', 'sans-serif'],
         wixMadeForDisplay: ['var(--font-wix-made-for-display)', 'sans-serif'],
+        establish: ['var(--font-establishRetrosansOTF)', 'sans-serif'],
       },
     },
   },

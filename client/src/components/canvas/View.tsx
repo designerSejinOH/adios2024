@@ -34,7 +34,18 @@ const View = forwardRef(({ children, orbit, ...props }: ViewProps, ref) => {
       <Three>
         <ViewImpl track={localRef}>
           {children}
-          {orbit && <OrbitControls />}
+          {orbit && (
+            <OrbitControls
+              autoRotate
+              enableDamping
+              dampingFactor={0.1}
+              rotateSpeed={0.5}
+              enableZoom={false}
+              enablePan={false}
+              minPolarAngle={Math.PI / 3}
+              maxPolarAngle={Math.PI / 1.5}
+            />
+          )}
         </ViewImpl>
       </Three>
     </>
