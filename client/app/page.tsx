@@ -49,7 +49,7 @@ export default function Page() {
   }
 
   return (
-    <div className='w-screen h-screen flex flex-col items-center'>
+    <div className='w-screen max-h-dvh h-screen flex flex-col items-center'>
       <Header />
       <div className='w-full h-full flex justify-center items-center bg-gray-200'>
         <View orbit className='flex h-full w-full flex-col items-center justify-center'>
@@ -110,18 +110,61 @@ export default function Page() {
 }
 
 const Header = () => {
+  const [isInfoOpen, setIsInfoOpen] = useState(false)
+
   return (
-    <div className='fixed z-10 top-0 left-1/2 -translate-x-1/2 flex w-fit h-fit flex-col gap-1 justify-center items-center py-6 cursor-pointer'>
-      <div
-        onClick={() => window.location.reload()}
-        className='text-4xl w-fit text-nowrap font-[establishRetrosansOTF] text-white font-bold md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out'
-      >
-        GOODBYE 2024
+    <>
+      <div className='fixed z-10 top-0 left-1/2 -translate-x-1/2 flex w-fit h-fit flex-col gap-1 justify-center items-center py-6 cursor-pointer'>
+        <div
+          onClick={() => window.location.reload()}
+          className='text-4xl w-fit text-nowrap font-[establishRetrosansOTF] text-white font-bold md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out'
+        >
+          GOODBYE 2024
+        </div>
+        <div
+          onClick={() => setIsInfoOpen(true)}
+          className='w-fit h-fit flex flex-row justify-center items-center gap-1 text-white md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out'
+        >
+          <MdInfoOutline />
+          <span className='text-lg font-pretendard '>아디오스 2024 프로젝트</span>
+        </div>
       </div>
-      <div className='w-fit h-fit flex flex-row justify-center items-center gap-1 text-white md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out'>
-        <MdInfoOutline />
-        <span className='text-lg font-pretendard '>아디오스 2024 프로젝트</span>
-      </div>
-    </div>
+      <BottomSheet height='fit' isOpen={isInfoOpen} onClose={() => setIsInfoOpen(false)}>
+        <div className='w-full h-fit  checking flex flex-col justify-center items-center gap-4 p-4'>
+          <div className='w-full h-fit flex flex-col justify-center items-center gap-4'>
+            <div className='w-full h-fit flex flex-row justify-center items-center gap-1'>
+              <BsFillBalloonFill className='text-3xl' />
+              <span className='text-4xl font-[establishRetrosansOTF]'>GOODBYE 2024</span>
+            </div>
+            <div className='w-full h-fit flex flex-col justify-center items-center gap-4'>
+              <span className='text-lg font-pretendard'>아디오스 2024 프로젝트</span>
+              <span className='text-lg font-pretendard'>2024년을 기억하며 2025년 새해 소망을 날려보세요.</span>
+              <p className='p-4 font-pretendard'>
+                이 프로젝트는 2024년을 끝으로 2025년을 맞이하는 굿바이 2024 프로젝트입니다. 우리는 보통 어떠한 일을
+                기억하거나 소원을 빌 때, 하늘에 소원을 빌며 기억하곤 합니다. 그런 이벤트 중 하나가 바로 풍선에 소원을
+                적고 날리는 것입니다. 하지만 풍선을 하늘에 떠나 보내는 것은 환경오염에 큰 영향을 줄 수 있습니다. 그래서
+                최근에는 환경보호단체에서 해당 이벤트를 금지하고 있습니다. &apos;아디오스 2024&apos;는 이러한 환경오염을
+                줄이기 위해 풍선 대신 인터넷에 소원을 올리고, 이를 하늘에 띄우는 프로젝트입니다.
+              </p>
+              {/* <p className='p-4 font-pretendard'>
+                (en) This project is the Goodbye 2024 project, which welcomes 2025 as 2024 ends. When we remember
+                something or make a wish, we often remember it by making a wish in the sky. One of those events is
+                writing a wish on a balloon and letting it fly. However, sending a balloon into the sky can have a
+                significant impact on environmental pollution. Therefore, environmental protection organizations are
+                currently prohibiting such events. &apos;ADIOS 2024&apos; is a project that reduces environmental
+                pollution by uploading wishes to the Internet instead of balloons and sending them into the sky.
+              </p> */}
+              <p className='p-4 font-pretendard'>
+                Designed and developed by{' '}
+                <a href='https://www.sejinoh.site' target='_blank' rel='noreferrer' className='text-blue-500'>
+                  SEJIN OH
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+      </BottomSheet>
+    </>
   )
 }

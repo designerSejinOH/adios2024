@@ -36,16 +36,15 @@ export const BottomSheet = ({
     <Sheet isOpen={isOpen} onClose={onClose}>
       <Sheet.Container
         className={classNames(
-          height === 'fit' ? 'h-fit' : height === 'screen' ? 'h-screen' : 'h-[calc(100vh-env(safe-area-inset-top))]',
+          'h-fit',
           'bg-transparent bg-sheet-gradient backdrop-blur-xl rounded-[36px]  shadow-[0px_-16px_20px_0px_rgba(0,0,0,0.12),0px_-8px_16px_0px_rgba(0,0,0,0.08),0px_0px_8px_0px_rgba(0,0,0,0.08)]',
-          height === 'screen' ? '' : 'pb-safe-offset-2',
         )}
       >
         {height !== 'screen' && (
           <Sheet.Header
             onPanStart={() => setIsHandling(true)}
             onPanEnd={() => setIsHandling(false)}
-            className='py-3 flex flex-col  justify-center items-center text-gray-500 '
+            className='py-3 flex flex-col justify-center items-center text-gray-500 '
           >
             <div className='w-fit h-[10px] flex justify-center items-center'>
               {isHandling ? (
@@ -78,7 +77,7 @@ export const BottomSheet = ({
           <Sheet.Scroller
             className={classNames(
               'w-full  flex flex-col justify-start items-center gap-4',
-              scrollable ? 'overflow-y-scroll h-full ' : 'overflow-y-hidden h-fit',
+              'overflow-y-hidden h-fit',
               className,
             )}
           >
