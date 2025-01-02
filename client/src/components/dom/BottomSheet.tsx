@@ -36,8 +36,7 @@ export const BottomSheet = ({
     <Sheet isOpen={isOpen} onClose={onClose}>
       <Sheet.Container
         className={classNames(
-          'h-fit',
-          'bg-transparent bg-sheet-gradient backdrop-blur-xl rounded-[36px]  shadow-[0px_-16px_20px_0px_rgba(0,0,0,0.12),0px_-8px_16px_0px_rgba(0,0,0,0.08),0px_0px_8px_0px_rgba(0,0,0,0.08)]',
+          'bg-transparent bg-sheet-gradient backdrop-blur-xl  shadow-[0px_-16px_20px_0px_rgba(0,0,0,0.12),0px_-8px_16px_0px_rgba(0,0,0,0.08),0px_0px_8px_0px_rgba(0,0,0,0.08)]',
         )}
       >
         {height !== 'screen' && (
@@ -72,14 +71,10 @@ export const BottomSheet = ({
           onPanStart={() => !scrollable && setIsHandling(true)}
           onPanEnd={() => !scrollable && setIsHandling(false)}
           disableDrag={scrollable}
-          className={classNames('h-fit w-full')}
+          className={classNames('h-fit w-full ')}
         >
           <Sheet.Scroller
-            className={classNames(
-              'w-full  flex flex-col justify-start items-center gap-4',
-              'overflow-y-hidden h-fit',
-              className,
-            )}
+            className={classNames('w-full flex flex-col justify-start items-center gap-4', 'overflow-y-hidden h-fit')}
           >
             {children}
           </Sheet.Scroller>

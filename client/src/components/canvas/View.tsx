@@ -36,7 +36,6 @@ const View = forwardRef(({ children, orbit, ...props }: ViewProps, ref) => {
           {children}
           {orbit && (
             <OrbitControls
-              autoRotate
               enableDamping
               dampingFactor={0.1}
               rotateSpeed={0.5}

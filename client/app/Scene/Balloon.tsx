@@ -1,7 +1,9 @@
 import * as THREE from 'three'
-import React, { useRef, useState, useEffect } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useRef, useState, useEffect, use } from 'react'
+import { Decal, PerspectiveCamera, RenderTexture, useGLTF, Text, useTexture, Plane } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { useFrame, useThree } from '@react-three/fiber'
+import { generate, generateSync, ComputedOptions, Canvas } from 'text-to-image'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -12,13 +14,17 @@ type GLTFResult = GLTF & {
 
 interface BalloonProps {
   color: string
+  text?: string
+  textSize?: number
   onClick: () => void
 }
 
-export const Balloon = ({ color, onClick }: BalloonProps) => {
+export const Balloon = ({ color, text, textSize, onClick }: BalloonProps) => {
   const { nodes, materials } = useGLTF('/assets/balloon.glb') as GLTFResult
   const [isHovered, setIsHovered] = useState(false)
   const ref = useRef<THREE.Mesh>(null!)
+
+  const { viewport } = useThree()
 
   useEffect(() => {
     //when the balloon is hovered, cursor changes to pointer and mateial emissive color changes
@@ -49,8 +55,39 @@ export const Balloon = ({ color, onClick }: BalloonProps) => {
         side={THREE.DoubleSide}
         emissive={isHovered ? '#7e7e7e' : '#000000'}
         emissiveIntensity={0.5}
-        attach='material'
       />
+      {ref.current && (
+        <Decal
+          mesh={ref}
+          position={[0, 0.45, 0]} // Adjust position as needed
+          rotation={[0, Math.PI / 3, 0]} // Rotate if necessary
+          scale={[1, 1, 1]} // Reduce depth (scale.z)
+        >
+          <meshStandardMaterial
+            metalness={0.1}
+            roughness={0.3}
+            transparent={true}
+            polygonOffset={true}
+            polygonOffsetFactor={-10} // Prevent Z-fighting
+            // side={THREE.DoubleSide} // Ensure visibility from both sides
+            alphaTest={0.5} // Optional: Use for binary transparency
+          >
+            <RenderTexture attach='map'>
+              <PerspectiveCamera makeDefault manual aspect={2 / 1} position={[0, 0, 5]} />
+              <Text
+                fontSize={textSize}
+                maxWidth={(viewport.width / 100) * 150}
+                overflowWrap='break-word'
+                anchorX='center'
+                anchorY='middle'
+                color='white'
+              >
+                {text}
+              </Text>
+            </RenderTexture>
+          </meshStandardMaterial>
+        </Decal>
+      )}
     </mesh>
   )
 }

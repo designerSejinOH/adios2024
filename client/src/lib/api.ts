@@ -3,6 +3,7 @@ import { supabase } from './supabaseClient'
 type BalloonData = {
   message: string
   color: string
+  text_size: number
 }
 
 export async function addMessage(data: BalloonData): Promise<void> {

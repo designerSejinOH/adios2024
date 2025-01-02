@@ -7,13 +7,23 @@ import { Balloon } from './Balloon'
 
 interface SceneProps {
   color?: string
+  text?: string
+  textSize?: number
   isSheetOpen?: boolean
   isDepature?: boolean
   onHandleObject?: () => void
 }
 
-export const Scene = ({ color, isSheetOpen, isDepature, onHandleObject }: SceneProps) => {
+export const Scene = ({ color, text, textSize, isSheetOpen, isDepature, onHandleObject }: SceneProps) => {
   const rigidBody = useRef<RapierRigidBody>(null)
+  const cloudRef = useRef(null)
+
+  // rotating clouds
+  useFrame(() => {
+    if (cloudRef.current) {
+      cloudRef.current.rotation.y += 0.001
+    }
+  })
 
   useEffect(() => {
     if (!isDepature) return // 부력을 적용하지 않음
@@ -42,10 +52,10 @@ export const Scene = ({ color, isSheetOpen, isDepature, onHandleObject }: SceneP
     <>
       {/* 조명 */}
       <ambientLight intensity={1} />
-      <hemisphereLight intensity={0.45 * Math.PI} />
-      <spotLight decay={0} angle={0.4} penumbra={1} position={[0, 1, 0]} castShadow shadow-bias={-0.00001} />
+      {/* <hemisphereLight intensity={0.45 * Math.PI} /> */}
+      {/* <spotLight decay={0} angle={0.4} penumbra={1} position={[0, 1, 0]} castShadow shadow-bias={-0.00001} /> */}
       <directionalLight color='orange' position={[-10, -10, 0]} intensity={1.5} />
-      <Clouds material={THREE.MeshBasicMaterial}>
+      <Clouds ref={cloudRef} material={THREE.MeshBasicMaterial}>
         <Cloud seed={10} bounds={50} volume={40} position={[2, 0, -2]} />
         <Cloud seed={10} bounds={50} volume={40} position={[-2, 10, -2]} />
       </Clouds>
@@ -62,7 +72,9 @@ export const Scene = ({ color, isSheetOpen, isDepature, onHandleObject }: SceneP
           angularDamping={0.5}
         >
           <Balloon
+            text={text}
             color={color}
+            textSize={textSize}
             onClick={() => {
               onHandleObject()
             }}
