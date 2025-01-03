@@ -4,6 +4,7 @@ type BalloonData = {
   message: string
   color: string
   text_size: number
+  text_color: string
 }
 
 export async function addMessage(data: BalloonData): Promise<void> {

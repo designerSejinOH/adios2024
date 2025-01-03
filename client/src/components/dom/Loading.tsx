@@ -1,4 +1,5 @@
 import Logo from '@/svg/logo.svg'
+import { Icon } from './Icon'
 
 /**
  * Loading
@@ -20,11 +21,9 @@ export const Loading = ({ size, text }: LoadingProps) => {
   size = size || 48
 
   return (
-    <div className='w-fit h-fit flex flex-col justify-center items-center'>
-      <div style={{ width: size, height: size }} className='flex flex-row items-end justify-center'>
-        <Logo className='w-full h-full text-primary-300' />
-      </div>
-      {text && <p className='text-center text-grayText text-xs mt-2'>{text || '불러오는중...'}</p>}
+    <div className='w-fit h-fit flex flex-col justify-center text-white items-center'>
+      <Icon icon='logo' className='animate-pulse' size={size} />
+      <p className='text-center text-grayText text-xs mt-2'>{text || '불러오는중...'}</p>
     </div>
   )
 }

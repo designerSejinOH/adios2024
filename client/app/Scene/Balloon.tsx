@@ -3,7 +3,6 @@ import React, { useRef, useState, useEffect, use } from 'react'
 import { Decal, PerspectiveCamera, RenderTexture, useGLTF, Text, useTexture, Plane } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 import { useFrame, useThree } from '@react-three/fiber'
-import { generate, generateSync, ComputedOptions, Canvas } from 'text-to-image'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -16,10 +15,11 @@ interface BalloonProps {
   color: string
   text?: string
   textSize?: number
+  textColor?: string
   onClick: () => void
 }
 
-export const Balloon = ({ color, text, textSize, onClick }: BalloonProps) => {
+export const Balloon = ({ color, text, textSize, textColor, onClick }: BalloonProps) => {
   const { nodes, materials } = useGLTF('/assets/balloon.glb') as GLTFResult
   const [isHovered, setIsHovered] = useState(false)
   const ref = useRef<THREE.Mesh>(null!)
@@ -51,9 +51,8 @@ export const Balloon = ({ color, text, textSize, onClick }: BalloonProps) => {
         metalness={0.1}
         roughness={0.3}
         transparent
-        opacity={0.8}
+        opacity={0.7}
         side={THREE.DoubleSide}
-        emissive={isHovered ? '#7e7e7e' : '#000000'}
         emissiveIntensity={0.5}
       />
       {ref.current && (
@@ -80,7 +79,7 @@ export const Balloon = ({ color, text, textSize, onClick }: BalloonProps) => {
                 overflowWrap='break-word'
                 anchorX='center'
                 anchorY='middle'
-                color='white'
+                color={textColor}
               >
                 {text}
               </Text>

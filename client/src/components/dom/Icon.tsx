@@ -3,9 +3,15 @@ import classNames from 'classnames'
 import type { HTMLAttributes } from 'react'
 import { createElement } from 'react'
 import logo from '@/svg/logo.svg'
+import balloon from '@/svg/balloon.svg'
+import text from '@/svg/text.svg'
+import check from '@/svg/check.svg'
 
 export const icons = {
   logo: logo,
+  balloon: balloon,
+  text: text,
+  check: check,
 }
 
 interface IconProps {

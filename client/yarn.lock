@@ -1807,6 +1807,55 @@
     "@typescript-eslint/types" "8.18.1"
     eslint-visitor-keys "^4.2.0"
 
+"@uiw/color-convert@2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@uiw/color-convert/-/color-convert-2.3.4.tgz#0fb13362f789157253c1ec9499315c40e4c179d0"
+  integrity sha512-av3PvCeP8o4H2a81n+vJwEEv8qGnQNonfCTiH9kO/CMQR1BvhGYijduM7RJzgHaAaVpE01opjNICQRyEx5qKVg==
+
+"@uiw/react-color-alpha@2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@uiw/react-color-alpha/-/react-color-alpha-2.3.4.tgz#526043a3fdf5d0a9e3a43caad5fb2b336b8a11b8"
+  integrity sha512-mY3ZgXocDcxe+g8vyBcajE8xWjLkxhGpH42wB/wZG+sfWn9NFnHhsPBop8MwTY8VCQU7EbKLl/DKNr+0k6REcg==
+  dependencies:
+    "@uiw/color-convert" "2.3.4"
+    "@uiw/react-drag-event-interactive" "2.3.4"
+
+"@uiw/react-color-circle@^2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@uiw/react-color-circle/-/react-color-circle-2.3.4.tgz#384af4082129aa9b4d865050d10401f76a2bde95"
+  integrity sha512-3uhDZB/TYqE0+f2sKGVuJl3d8ogBGrjHeGDz6dZu0F25CLVNqO7g3xzwYYqI1ea/8d2cRd2s6GtM2LmvVJtIpQ==
+  dependencies:
+    "@uiw/color-convert" "2.3.4"
+    "@uiw/react-color-swatch" "2.3.4"
+
+"@uiw/react-color-shade-slider@^2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@uiw/react-color-shade-slider/-/react-color-shade-slider-2.3.4.tgz#06fd8f654da30390f55cef1e557fd3b6292982a1"
+  integrity sha512-tS+dM1yTk07SDSKVpreuC2MUiq/umxZ+RMto4HqfSbWMVbBNMMVcTYi60+w/lcz5xJwGYRCKkeg7QmEhKXtUXA==
+  dependencies:
+    "@uiw/color-convert" "2.3.4"
+    "@uiw/react-color-alpha" "2.3.4"
+
+"@uiw/react-color-swatch@2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@uiw/react-color-swatch/-/react-color-swatch-2.3.4.tgz#df061696062ef481cfb6872915b6eb6594a66fc8"
+  integrity sha512-tl0wsu58MUeWUaKwi7zBKSkgLqugUWEYMOHDtooUvd96/dox0aPrB8KjH7J/2SaxAZzqUNMEEumGwuD3cmI2iw==
+  dependencies:
+    "@uiw/color-convert" "2.3.4"
+
+"@uiw/react-color-wheel@^2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@uiw/react-color-wheel/-/react-color-wheel-2.3.4.tgz#8fb1cd902f4eb00fb7f79040463591cdf772e95d"
+  integrity sha512-kTaHC8YoIeppahcnIvQBJfzWmtCzwIGV0/C28eN3YH9LGQeDV5vYAYSJ31Y1PWdM5xLwaATa06q8+X0wOSId9Q==
+  dependencies:
+    "@uiw/color-convert" "2.3.4"
+    "@uiw/react-drag-event-interactive" "2.3.4"
+
+"@uiw/react-drag-event-interactive@2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@uiw/react-drag-event-interactive/-/react-drag-event-interactive-2.3.4.tgz#0f4ea1c08606109f4b73547ff13633b53039b8f9"
+  integrity sha512-j2y2MjgriyarQhD7R8zii4Ily3hWp+IkbvpmDD75f1PZL71IJDKswAHG1bO/bEXpI1l5GVJTn7NPfS9kxbCqnw==
+
 "@ungap/structured-clone@^1.2.0":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.1.tgz#28fa185f67daaf7b7a1a8c1d445132c5d979f8bd"
