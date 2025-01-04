@@ -10,42 +10,42 @@
 }
 
 @font-face {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSans', sans-serif;
   src: url('/fonts/NotoSansKR-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSans', sans-serif;
   src: url('/fonts/NotoSansKR-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NotoSans', sans-serif;
   src: url('/fonts/NotoSansKR-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'NotoSerif', serif;
   src: url('/fonts/NotoSerifKR-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'NotoSerif', serif;
   src: url('/fonts/NotoSerifKR-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'NotoSerif', serif;
   src: url('/fonts/NotoSerifKR-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
@@ -120,6 +120,8 @@
     @media all and (display-mode: standalone) {
       height: 100vh;
     }
+
+    font-synthesis: none;
   }
 
   canvas {

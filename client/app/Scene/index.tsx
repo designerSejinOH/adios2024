@@ -99,7 +99,7 @@ export const Scene = ({
         <RigidBody
           ref={rigidBody}
           colliders='hull'
-          position={[0, -1, 0]}
+          position={[0, -0.85, 0]}
           mass={1}
           linearDamping={0.5}
           angularDamping={0.5}
@@ -117,7 +117,7 @@ export const Scene = ({
           />
         </RigidBody>
         {/* Floor */}
-        <CuboidCollider position={[0, -1, 0]} args={[1, 0, 1]} />
+        <CuboidCollider position={[0, -0.85, 0]} args={[1, 0, 1]} />
       </Physics>
     </>
   )

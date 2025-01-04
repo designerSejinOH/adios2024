@@ -87,10 +87,16 @@ export default function Page() {
   }, [isBalloonGone])
 
   return (
-    <div className='w-screen max-h-dvh h-screen flex flex-col items-center'>
+    <div className='w-screen max-h-dvh h-screen flex flex-col justify-center items-start'>
       <Header />
-      <div className='w-full h-full flex justify-center items-center bg-gray-200'>
-        <View orbit className='flex h-full w-full flex-col items-center justify-center'>
+      <div className='w-full h-full flex justify-center items-start bg-gray-200'>
+        <View
+          orbit
+          className={classNames(
+            'flex w-full flex-col items-center justify-center transition-all duration-200 ease-in-out',
+            colorDropdown || textOption ? 'h-1/2' : 'h-full',
+          )}
+        >
           <Suspense fallback={null}>
             <Scene
               color={color}
@@ -130,10 +136,18 @@ export default function Page() {
           </motion.div>
         )}
       </AnimatePresence>
+      <div
+        onClick={() => {
+          router.push('/balloons')
+        }}
+        className='w-fit h-fit text-white bg-white/30 backdrop-blur-sm px-3 py-1 rounded-xl text-sm font-pretendard absolute z-20 flex justify-center items-center bottom-28 left-1/2 transform -translate-x-1/2 md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer'
+      >
+        지금까지 날아간 풍선들 보기
+      </div>
 
       <motion.div
         className={classNames(
-          'w-[90vw] max-w-96 h-fit absolute z-10 bottom-6 left-1/2 transform -translate-x-1/2 ',
+          'w-[90vw] max-w-96 h-fit absolute z-10 bottom-8 left-1/2 transform -translate-x-1/2 ',
           'flex flex-row justify-between items-center pl-4 pr-4 py-3',
           'bg-white rounded-3xl',
         )}
@@ -155,6 +169,7 @@ export default function Page() {
             height='fit'
             onClose={() => setColorDropdown(false)}
             className='flex justify-center items-center px-6 pt-4 pb-6 gap-6'
+            draggable
           >
             <div
               style={{
@@ -193,8 +208,9 @@ export default function Page() {
               height='fit'
               onClose={() => setTextOption(false)}
               className='flex justify-center items-center px-6 pt-4 pb-6 gap-6'
+              draggable
             >
-              <div className='w-full h-fit flex py-4 flex-row justify-between items-center gap-1'>
+              <div className='w-full h-fit flex pb-2 flex-col justify-between items-center gap-4'>
                 <div
                   style={{
                     color: textColor,
@@ -208,14 +224,16 @@ export default function Page() {
                             : textSize === 0.4
                               ? '1.5rem'
                               : '1.7rem',
-                    fontFamily: `${fontStyle === 'serif' ? "'Noto Serif KR'" : "'Noto Sans KR'"}, ${fontStyle}`,
+                    fontFamily: fontStyle === 'serif' ? `'NotoSerif', serif` : `'NotoSans', sans-serif`,
                     fontWeight: fontWeight === 'light' ? 300 : fontWeight === 'medium' ? 500 : 700,
                   }}
-                  className='w-2/5 rounded-xl px-4 h-fit flex flex-row justify-center items-center gap-1'
+                  className={classNames(
+                    'w-full bg-white rounded-xl p-4 h-fit flex flex-row justify-center items-center gap-1',
+                  )}
                 >
-                  가나다 Abc
+                  Abc, 가나다, 123
                 </div>
-                <div className='w-full h-fit flex flex-col justify-start items-start gap-3'>
+                <div className='w-fit h-fit flex flex-col justify-start items-start gap-3'>
                   <div className='w-fit h-fit flex flex-row justify-center items-center gap-1'>
                     <Icon icon='textSize' className='mr-1' size={32} />
                     {[0.1, 0.2, 0.25, 0.4, 0.5].map((size) => (
@@ -246,7 +264,7 @@ export default function Page() {
                           weight === fontWeight && 'bg-[#ddd] text-black shadow-sm',
                         )}
                       >
-                        {weight}
+                        {weight === 'light' ? 'Light' : weight === 'medium' ? 'Medium' : 'Bold'}
                       </div>
                     ))}
                   </div>
@@ -258,12 +276,13 @@ export default function Page() {
                         onClick={() => {
                           setFontStyle(style)
                         }}
+                        style={{ fontFamily: style === 'serif' ? `'NotoSerif', serif` : `'NotoSans', sans-serif` }}
                         className={classNames(
                           'w-fit   h-fit px-2 py-1 text-black  font-pretendard rounded-xl flex justify-center items-center gap-1 text-sm cursor-pointer md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out',
                           style === fontStyle && 'bg-[#ddd] text-black shadow-sm',
                         )}
                       >
-                        {style}
+                        {style === 'serif' ? '명조체' : '고딕체'}
                       </div>
                     ))}
                   </div>

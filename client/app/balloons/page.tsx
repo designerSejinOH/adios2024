@@ -78,9 +78,9 @@ export default function Page() {
         onClick={() => {
           router.push('/')
         }}
-        className='fixed z-20 w-fit h-fit bottom-0 left-0 mb-4 ml-4 flex flex-row gap-1 justify-center items-center text-white font-[pretendard] md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out '
+        className='fixed z-20 w-fit h-fit bottom-0 bg-white/30 backdrop-blur-sm text-white pl-2 pr-3 py-2 rounded-xl left-0 mb-4 ml-4 flex flex-row gap-1 justify-center items-center  font-[pretendard] md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out '
       >
-        <Icon icon='left' size={16} />
+        <Icon icon='balloon' size={16} />
         메세지 보내러 가기
       </button>
     </div>

@@ -10,6 +10,7 @@ import left from '@/svg/left.svg'
 import textSize from '@/svg/textSize.svg'
 import fontWeight from '@/svg/fontWeight.svg'
 import fontStyle from '@/svg/fontStyle.svg'
+import info from '@/svg/info.svg'
 
 export const icons = {
   logo: logo,
@@ -20,6 +21,7 @@ export const icons = {
   textSize: textSize,
   fontWeight: fontWeight,
   fontStyle: fontStyle,
+  info: info,
 }
 
 interface IconProps {
