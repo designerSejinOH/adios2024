@@ -16,7 +16,7 @@ export interface BottomSheetProps {
   title?: string
   children: React.ReactNode
   className?: string
-  scrollable?: boolean
+  draggable?: boolean
 }
 
 export const BottomSheet = ({
@@ -28,7 +28,7 @@ export const BottomSheet = ({
   title,
   children,
   className,
-  scrollable,
+  draggable = false,
 }: BottomSheetProps) => {
   const [isHandling, setIsHandling] = useState(false)
 
@@ -66,7 +66,7 @@ export const BottomSheet = ({
             )}
           </div>
         </Sheet.Header>
-        <Sheet.Content disableDrag={true} className={classNames('w-full h-fit', className)}>
+        <Sheet.Content disableDrag={!draggable} className={classNames('w-full h-fit', className)}>
           {children}
         </Sheet.Content>
       </Sheet.Container>

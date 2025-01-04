@@ -21,7 +21,7 @@ export const Loading = ({ size, text }: LoadingProps) => {
   size = size || 48
 
   return (
-    <div className='w-fit h-fit flex flex-col justify-center text-white items-center'>
+    <div className='w-fit h-fit flex flex-col justify-center text-black items-center'>
       <Icon icon='logo' className='animate-pulse' size={size} />
       <p className='text-center text-grayText text-xs mt-2'>{text || '불러오는중...'}</p>
     </div>

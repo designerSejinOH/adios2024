@@ -6,12 +6,20 @@ import logo from '@/svg/logo.svg'
 import balloon from '@/svg/balloon.svg'
 import text from '@/svg/text.svg'
 import check from '@/svg/check.svg'
+import left from '@/svg/left.svg'
+import textSize from '@/svg/textSize.svg'
+import fontWeight from '@/svg/fontWeight.svg'
+import fontStyle from '@/svg/fontStyle.svg'
 
 export const icons = {
   logo: logo,
   balloon: balloon,
   text: text,
   check: check,
+  left: left,
+  textSize: textSize,
+  fontWeight: fontWeight,
+  fontStyle: fontStyle,
 }
 
 interface IconProps {

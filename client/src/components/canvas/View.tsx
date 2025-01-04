@@ -21,10 +21,12 @@ interface ViewProps {
   children: React.ReactNode
   orbit?: boolean
   perf?: boolean
+  zoomable?: boolean
+  multiCam?: boolean
   className?: string // className 속성 추가
 }
 
-const View = forwardRef(({ children, orbit, ...props }: ViewProps, ref) => {
+const View = forwardRef(({ children, orbit, zoomable = false, multiCam, ...props }: ViewProps, ref) => {
   const localRef = useRef(null)
   useImperativeHandle(ref, () => localRef.current)
 
@@ -39,12 +41,15 @@ const View = forwardRef(({ children, orbit, ...props }: ViewProps, ref) => {
               enableDamping
               dampingFactor={0.1}
               rotateSpeed={0.5}
-              enableZoom={false}
-              enablePan={false}
+              enableZoom={zoomable}
+              enablePan={zoomable}
               minPolarAngle={Math.PI / 3}
               maxPolarAngle={Math.PI / 1.5}
+              minDistance={1}
+              maxDistance={150}
             />
           )}
+          {multiCam && <PerspectiveCamera makeDefault fov={15} position={[0, 0, 30]} />}
         </ViewImpl>
       </Three>
     </>

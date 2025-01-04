@@ -10,6 +10,8 @@ interface SceneProps {
   text?: string
   textSize?: number
   textColor?: string
+  fontWeight?: string
+  fontStyle?: string
   isSheetOpen?: boolean
   isDepature?: boolean
   setIsBalloonGone?: (isBalloonGone: boolean) => void
@@ -21,12 +23,15 @@ export const Scene = ({
   text,
   textSize,
   textColor,
+  fontWeight,
+  fontStyle,
   setIsBalloonGone,
   isDepature,
   onHandleObject,
 }: SceneProps) => {
   const rigidBody = useRef<RapierRigidBody>(null)
   const cloudRef = useRef(null)
+
   // rotating clouds
   useFrame(() => {
     if (cloudRef.current) {
@@ -104,6 +109,8 @@ export const Scene = ({
             color={color}
             textSize={textSize}
             textColor={textColor}
+            fontWeight={fontWeight}
+            fontStyle={fontStyle}
             onClick={() => {
               onHandleObject()
             }}
