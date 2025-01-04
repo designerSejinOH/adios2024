@@ -1,7 +1,7 @@
 export const APP_INFO = {
-  name: 'ADIOS2024',
-  title: 'ADIOS2024',
-  titleTemplate: '%s - ADIOS2024',
+  name: 'Adios2024',
+  title: 'Adios2024',
+  titleTemplate: '%s - Adios2024',
   description: `
   Goodbye 2024, Hello 2025.
   `,
