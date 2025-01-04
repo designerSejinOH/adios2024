@@ -158,6 +158,7 @@ export const Balloon = ({
                 maxWidth={3}
                 lineHeight={1.2}
                 overflowWrap='break-word'
+                textAlign='center'
                 anchorX='center'
                 anchorY='middle'
                 color={textColor}
