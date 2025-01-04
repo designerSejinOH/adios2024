@@ -169,7 +169,6 @@ export default function Page() {
             height='fit'
             onClose={() => setColorDropdown(false)}
             className='flex justify-center items-center px-6 pt-4 pb-6 gap-6'
-            draggable
           >
             <div
               style={{
