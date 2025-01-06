@@ -4,6 +4,7 @@ import { forwardRef, Suspense, useImperativeHandle, useRef } from 'react'
 import { OrbitControls, PerspectiveCamera, View as ViewImpl } from '@react-three/drei'
 import { Three } from '@/helpers/components/Three'
 import * as THREE from 'three'
+import { Perf } from 'r3f-perf'
 
 interface CommonProps {
   color?: THREE.ColorRepresentation
@@ -36,6 +37,7 @@ const View = forwardRef(({ children, orbit, zoomable = false, multiCam, ...props
       <Three>
         <ViewImpl track={localRef}>
           {children}
+          {props.perf && <Perf position='bottom-right' />}
           {orbit && (
             <OrbitControls
               enableDamping

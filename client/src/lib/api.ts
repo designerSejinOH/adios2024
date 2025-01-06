@@ -1,6 +1,7 @@
 import { supabase } from './supabaseClient'
 
 export type BalloonData = {
+  created_at?: string | number | Date
   message: string
   color: string
   text_size: number
