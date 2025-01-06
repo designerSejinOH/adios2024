@@ -96,8 +96,8 @@ export default function Page() {
             }}
             className=' w-full h-fit text-white pl-3 pr-4 rounded-2xl flex flex-row gap-1 justify-center items-center  font-[pretendard] md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out '
           >
-            <Icon icon='balloon' className='' size={20} />
-            <span className='text-lg'>메세지 보내기</span>
+            <Icon icon='balloon' className='' size={16} />
+            <span className=''>메세지 보내기</span>
           </button>
 
           <div className='flex flex-row w-full h-fit justify-between items-center gap-4 text-black text-sm bg-white/50 backdrop-blur-sm rounded-2xl px-2 py-3 font-pretendard'>

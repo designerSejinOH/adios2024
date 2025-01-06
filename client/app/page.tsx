@@ -128,9 +128,9 @@ export default function Page() {
               onClick={() => {
                 router.push('/balloons')
               }}
-              className='w-fit h-fit pl-3 pr-5 py-3 flex justify-center items-center bg-white text-black shadow-md text-lg rounded-3xl md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer'
+              className='w-fit h-fit pl-3 pr-5 py-3 flex justify-center items-center bg-white text-black shadow-md rounded-3xl md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer'
             >
-              <Icon icon='logo' className='mr-1' size={36} />
+              <Icon icon='logo' className='mr-1' size={24} />
               날아간 풍선 보러 가기
             </div>
           </motion.div>
