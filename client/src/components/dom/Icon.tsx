@@ -11,6 +11,8 @@ import textSize from '@/svg/textSize.svg'
 import fontWeight from '@/svg/fontWeight.svg'
 import fontStyle from '@/svg/fontStyle.svg'
 import info from '@/svg/info.svg'
+import arrowRight from '@/svg/arrowRight.svg'
+import exit from '@/svg/exit.svg'
 
 export const icons = {
   logo: logo,
@@ -22,6 +24,8 @@ export const icons = {
   fontWeight: fontWeight,
   fontStyle: fontStyle,
   info: info,
+  arrowRight: arrowRight,
+  exit: exit,
 }
 
 interface IconProps {

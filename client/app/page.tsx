@@ -118,20 +118,29 @@ export default function Page() {
       <AnimatePresence>
         {isBalloonGone && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.5, transformOrigin: 'center', transform: 'translate(-50%, -50%)' }}
+            initial={{ opacity: 0, scale: 0.1, transformOrigin: 'center', transform: 'translate(-50%, -50%)' }}
             animate={{ opacity: 1, scale: 1, transformOrigin: 'center', transform: 'translate(-50%, -50%)' }}
-            exit={{ opacity: 0, scale: 0.5, transformOrigin: 'center', transform: 'translate(-50%, -50%)' }}
-            className='w-fit h-fit fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 justify-center items-center'
+            exit={{ opacity: 0, scale: 0.1, transformOrigin: 'center', transform: 'translate(-50%, -50%)' }}
+            transition={{
+              duration: 0.3,
+              type: 'spring',
+              damping: 20,
+              stiffness: 100,
+            }}
+            className='w-fit h-fit fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-2 justify-center items-center bg-white/20 backdrop-blur-sm text-white rounded-2xl px-8 pt-8 pb-6'
           >
-            <span className='text-white text-xl font-pretendard'>풍선이 날아갔습니다!</span>
+            {/* <div className='absolute right-4 top-4 w-fit h-fit flex justify-center items-center  md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer'>
+              <Icon icon='exit' size={20} onClick={() => setIsBalloonGone(true)} />
+            </div> */}
+            <Icon icon='logo' className='mr-1' size={64} />
+            <span className='text-white text-lg font-pretendard mb-2'>풍선이 날아갔습니다!</span>
             <div
               onClick={() => {
                 router.push('/balloons')
               }}
-              className='w-fit h-fit pl-3 pr-5 py-3 flex justify-center items-center bg-white text-black shadow-md rounded-3xl md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer'
+              className='w-fit h-fit pl-6 pr-4 py-2 flex justify-center items-center bg-white text-black rounded-2xl md:hover:opacity-60 active:opacity-60 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer'
             >
-              <Icon icon='logo' className='mr-1' size={24} />
-              날아간 풍선 보러 가기
+              날아간 풍선 보러 가기 <Icon icon='arrowRight' className='ml-1' />
             </div>
           </motion.div>
         )}
