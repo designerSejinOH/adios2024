@@ -24,5 +24,18 @@ However, sending a balloon into the sky can have a significant impact on environ
 Therefore, environmental protection organizations are currently prohibiting such events.
 'ADIOS 2024' is a project that reduces environmental pollution by uploading wishes to the Internet instead of balloons and sending them into the sky.
 
+### Made by
+
+#### front-end
+
+- next14
+- three.js
+- react-three/drei
+- react-three/fiber
+- react-three/rapier
+
+#### back-end
+- supabase
+
 designed and developed by [SEJIN OH](https://sejinoh.site)
 
